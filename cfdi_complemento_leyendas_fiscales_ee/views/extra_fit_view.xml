@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+<!-- HERENCIA A ACCOUNT INVOICE -->
+
+   <record id="view_invoice_extend_complemento_leyendas_fiscales" model="ir.ui.view">
+            <field name="name">account.move.form.leyendas.fiscales</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="l10n_mx_edi.view_l10n_mx_edi_invoice_form_inherit"/>
+            <field name="arch" type="xml">
+                <field name="l10n_mx_edi_origin" position="after">
+                    <field name="complemento_leyendas_fiscales" />
+                </field>
+                <notebook position="inside">
+                    <page string="Leyendas Fiscales" attrs="{'invisible':[('complemento_leyendas_fiscales','=',False)]}">
+                        <field name="leyendas_fiscales_ids">
+                            <tree string="Leyendas Fiscales" editable="bottom">
+                                <field name="disposicion" />
+                                <field name="norma" />
+                                <field name="texto_leyenda" />
+                            </tree>
+                        </field>
+                        
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+</data>
+</odoo>
