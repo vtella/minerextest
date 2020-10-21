@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="complemento_leyendas_fiscales" inherit_id="l10n_mx_edi.cfdiv33">
+        <xpath expr="*" position="inside">
+          <t t-if="record.complemento_leyendas_fiscales">
+               <cfdi:Complemento xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+                  <leyendasFisc:LeyendasFiscales xmlns:leyendasFisc="http://www.sat.gob.mx/leyendasFiscales" version="1.0">
+                    <t t-foreach="record.leyendas_fiscales_ids" t-as="leyenda">
+                      <leyendasFisc:Leyenda t-att-disposicionFiscal="leyenda.disposicion" t-att-norma="leyenda.norma" t-att-textoLeyenda="leyenda.texto_leyenda"/>
+                    </t>
+                  </leyendasFisc:LeyendasFiscales>
+               </cfdi:Complemento>
+            </t>
+        </xpath>
+    </template>
+</odoo>
