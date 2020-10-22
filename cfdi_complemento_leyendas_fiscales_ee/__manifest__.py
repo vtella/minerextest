@@ -25,11 +25,12 @@
     """,
     'version' : '1.0',
     'author' : 'German Ponce Dominguez',
-    'website' : 'http://www.argil.mx',
+    'website' : 'http://poncesoft.blogspot.com',
     'license' : 'GPL-3',
     'category' : 'Nishikawa',
     'depends' : [
                 'account',
+                'account_invoicing',
                 'sale',
                 'l10n_mx_edi',
                 ],

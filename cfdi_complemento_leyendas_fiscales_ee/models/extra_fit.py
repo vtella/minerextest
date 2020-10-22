@@ -24,9 +24,9 @@ from odoo import api, fields, models, _, tools, release
 from odoo.exceptions import UserError, RedirectWarning, ValidationError
 
 
-class AccountMove(models.Model):
-    _name = 'account.move'
-    _inherit ='account.move'
+class AccountInvoice(models.Model):
+    _name = 'account.invoice'
+    _inherit ='account.invoice'
 
     complemento_leyendas_fiscales = fields.Boolean('C. Leyendas Fiscales', help='Este Campo activa el complemento Leyendas Fiscales en el XML durante la Facturacion.')
 
@@ -43,7 +43,7 @@ class AccountMove(models.Model):
 
     @api.onchange('partner_id', 'company_id')
     def _onchange_partner_id(self):
-        res = super(AccountMove, self)._onchange_partner_id()
+        res = super(AccountInvoice, self)._onchange_partner_id()
         if self.partner_id.complemento_leyendas_fiscales:
             self.complemento_leyendas_fiscales = True
             leyendas_ids = [x.id for x in self.partner_id.leyendas_fiscales_ids]
